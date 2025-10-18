@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Download, Store } from 'lucide-react';
-import videoFile from '/src/assets/images/water mark video.mp4';
+import videoFile from '../assets/images/water mark video.mp4';
 
 export default function BestbyBitesBanner() {
   const videoRef = useRef(null);
