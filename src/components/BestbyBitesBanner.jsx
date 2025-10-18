@@ -42,7 +42,7 @@ export default function BestbyBitesBanner() {
 
   return (
     <div
-      className="relative w-full overflow-hidden flex items-center justify-center bg-green-900"
+      className="relative w-full overflow-hidden flex items-center justify-center bg-green-600"
       style={{
         height: getContainerHeight(),
         minHeight: isSmallScreen ? '300px' : '400px'
