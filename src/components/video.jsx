@@ -44,7 +44,9 @@ const VideoCard = ({ videoSrc }) => {
           preload="auto"
           src={videoSrc}
           onError={() => setHasError(true)}
-        />
+        >
+          <source src={videoSrc} type="video/mp4" />
+        </video>
       ) : (
         <div className="w-full h-full flex items-center justify-center bg-gray-900 text-white text-sm">
           Video not supported or missing
@@ -63,12 +65,13 @@ const VideoCard = ({ videoSrc }) => {
 };
 
 const VideoGrid = () => {
+  // ✅ FIXED: Use absolute paths with /best/ base
   const videos = [
-    '/videos/video.mp4',
-    '/videos/video1.mp4',
-    '/videos/video2.mp4',
-    '/videos/video3.mp4',
-    '/videos/video4.mp4'
+    '/best/videos/video.mp4',
+    '/best/videos/video1.mp4',
+    '/best/videos/video2.mp4',
+    '/best/videos/video3.mp4',
+    '/best/videos/video4.mp4'
   ];
 
   return (

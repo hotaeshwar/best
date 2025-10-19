@@ -4,12 +4,12 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: './',  // ✅ CHANGED: from '/' to './'
+  base: '/best/',  // ✅ Your repo name
   plugins: [tailwindcss(), react()],
-  assetsInclude: ['**/*.mp4'],  // ✅ ADDED: for video files
+  assetsInclude: ['**/*.mp4'],
   build: {
     outDir: 'dist',
     sourcemap: false,
-    assetsInlineLimit: 0,  // ✅ ADDED: don't inline videos
+    assetsInlineLimit: 0,
   },
 })
