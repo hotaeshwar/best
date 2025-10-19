@@ -52,8 +52,8 @@ export default function BestbyBitesBanner() {
           
           {/* Main Heading */}
           <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3 sm:mb-4 md:mb-5 leading-tight drop-shadow-lg">
-            Eat Well. Pay Less.
-            <span className="block mt-1">Waste Less.</span>
+            Better Food. Better Prices.
+            <span className="block mt-1">A Better Planet.</span>
           </h1>
 
           {/* Subheading */}
