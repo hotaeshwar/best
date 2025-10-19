@@ -4,9 +4,17 @@ import businessSolutionsImage from '/src/assets/images/businesssolutions.png';
 export default function BusinessSolutions() {
   const [isVisible, setIsVisible] = useState(false);
   const [activeCard, setActiveCard] = useState(0);
+  const [isMounted, setIsMounted] = useState(false);
   const imageRef = useRef(null);
 
+  // Prevent hydration errors
   useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!isMounted) return;
+
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -27,16 +35,18 @@ export default function BusinessSolutions() {
         observer.unobserve(imageRef.current);
       }
     };
-  }, []);
+  }, [isMounted]);
 
-  // Auto-switch between cards with zoom effect
+  // Auto-switch between cards
   useEffect(() => {
+    if (!isMounted) return;
+
     const interval = setInterval(() => {
       setActiveCard((prev) => (prev + 1) % 4);
-    }, 3000); // Switch every 3 seconds
+    }, 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [isMounted]);
 
   const solutions = [
     {
@@ -57,55 +67,62 @@ export default function BusinessSolutions() {
     }
   ];
 
+  if (!isMounted) {
+    return null;
+  }
+
   return (
-    <section className="w-full bg-gray-50 py-12 sm:py-16 md:py-20 lg:py-24 px-4 sm:px-6 lg:px-8">
+    <section className="w-full bg-gray-50 py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 px-3 sm:px-4 md:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
         
         {/* Header Section */}
-        <div className="text-center mb-10 sm:mb-12 md:mb-16 lg:mb-20">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-teal-900 mb-4 sm:mb-6">
+        <div className="text-center mb-8 sm:mb-10 md:mb-12 lg:mb-16 xl:mb-20">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl font-bold text-teal-900 mb-3 sm:mb-4 md:mb-5 lg:mb-6 leading-tight">
             Our Business solutions
           </h2>
-          <p className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-800 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-gray-800 max-w-4xl mx-auto leading-relaxed px-2">
             We offer a range of solutions to empower the world's leading food distributors to avoid good food from going to waste.
           </p>
         </div>
 
         {/* Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-7 md:gap-8 lg:gap-10 xl:gap-12 items-center">
           
           {/* Left Side - Image with Animation */}
           <div 
             ref={imageRef}
             className={`flex justify-center lg:justify-start transition-all duration-1000 ease-out ${
-              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full'
+              isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-10'
             }`}
           >
-            <div className="w-full max-w-2xl">
+            <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-xl xl:max-w-2xl">
               <img 
                 src={businessSolutionsImage} 
                 alt="Business Solutions" 
-                className="w-full h-auto object-contain drop-shadow-2xl"
+                className="w-full h-auto object-contain drop-shadow-lg sm:drop-shadow-xl"
+                loading="lazy"
+                decoding="async"
               />
             </div>
           </div>
 
           {/* Right Side - Cards Grid with Zoom Animation */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 md:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 md:gap-5 lg:gap-6">
             
             {solutions.map((solution, index) => (
               <div 
                 key={index}
-                className={`bg-white rounded-2xl border-2 p-6 sm:p-7 md:p-8 transition-all duration-700 ease-in-out ${
+                className={`bg-white rounded-lg sm:rounded-xl lg:rounded-2xl border-2 p-4 sm:p-5 md:p-6 lg:p-7 xl:p-8 transition-all duration-700 ease-in-out cursor-pointer ${
                   activeCard === index 
-                    ? 'scale-110 z-10 border-teal-500 shadow-xl opacity-100' 
-                    : 'scale-90 opacity-70 border-gray-300'
+                    ? 'scale-100 sm:scale-110 z-10 border-teal-500 shadow-lg sm:shadow-xl opacity-100' 
+                    : 'scale-95 sm:scale-90 opacity-60 sm:opacity-70 border-gray-300'
                 }`}
+                onClick={() => setActiveCard(index)}
               >
-                <h3 className="text-base sm:text-lg md:text-xl font-bold text-teal-900 mb-3 sm:mb-4 text-center leading-tight">
+                <h3 className="text-sm sm:text-base md:text-lg lg:text-xl font-bold text-teal-900 mb-2 sm:mb-3 md:mb-4 text-center leading-tight">
                   {solution.title}
                 </h3>
-                <p className="text-xs sm:text-sm md:text-base text-gray-700 leading-relaxed text-center">
+                <p className="text-xs sm:text-sm md:text-base lg:text-base text-gray-700 leading-relaxed text-center">
                   {solution.description}
                 </p>
               </div>
@@ -119,11 +136,3 @@ export default function BusinessSolutions() {
     </section>
   );
 }
-
-
-
-
-
-
-
-
