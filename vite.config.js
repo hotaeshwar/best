@@ -4,7 +4,7 @@ import tailwindcss from '@tailwindcss/vite'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/best/',  // ✅ Your repo name
+  base: '/best/',  // ✅ Correct for bb.buildingindiadigital.com/best/
   plugins: [tailwindcss(), react()],
   assetsInclude: ['**/*.mp4'],
   build: {
