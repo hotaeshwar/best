@@ -76,9 +76,19 @@ const VideoGrid = () => {
   return (
     <div className="min-h-screen bg-white">
       <div className="max-w-7xl mx-auto px-4 py-6">
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4">
+        <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4 auto-rows-max">
           {videos.map((videoSrc, index) => (
-            <div key={index} className="aspect-[9/16]">
+            <div 
+              key={index} 
+              className={`aspect-[9/16] ${
+                index >= 3 ? 'sm:col-span-1.5' : ''
+              }`}
+              style={
+                index >= 3 ? {
+                  gridColumn: 'span 1.5'
+                } : {}
+              }
+            >
               <VideoCard videoSrc={videoSrc} />
             </div>
           ))}
