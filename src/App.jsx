@@ -5,6 +5,7 @@ import ScrollProgress from './components/ScrollProgress';
 import BestbyBitesBanner from './components/BestbyBitesBanner';
 import BestByBitesHero from './components/BestByBitesHero';
 import WhyUseBestByBites from './components/WhyUseBestByBites';
+import Video from './components/Video';
 import HowItWorks from './components/HowItWorks';
 import GroceryLanding from './components/GroceryLanding';
 import BusinessSolutions from './components/BusinessSolutions';
@@ -42,6 +43,7 @@ function AppContent() {
             <div>
               <BestbyBitesBanner />
               <WhyUseBestByBites />
+              <Video />
               <HowItWorks />
               <GroceryLanding />
               <BusinessSolutions />
