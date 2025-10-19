@@ -65,13 +65,12 @@ const VideoCard = ({ videoSrc }) => {
 };
 
 const VideoGrid = () => {
-  // ✅ FIXED: Use absolute paths with /best/ base
   const videos = [
-    '/best/videos/video.mp4',
-    '/best/videos/video1.mp4',
-    '/best/videos/video2.mp4',
-    '/best/videos/video3.mp4',
-    '/best/videos/video4.mp4'
+    '/videos/video.mp4',
+    '/videos/video1.mp4',
+    '/videos/video2.mp4',
+    '/videos/video3.mp4',
+    '/videos/video4.mp4'
   ];
 
   return (
