@@ -76,9 +76,21 @@ const VideoGrid = () => {
   return (
     <div className="min-h-screen bg-white">
       <div className="max-w-7xl mx-auto px-4 py-6">
-        <div className="flex flex-col items-center gap-6">
+        {/* Mobile: 3 top, 2 bottom centered | Desktop: 5 inline */}
+        <div className="hidden md:flex justify-center w-full">
+          <div className="grid grid-cols-5 gap-3 md:gap-4 w-full">
+            {videos.map((videoSrc, index) => (
+              <div key={index} className="aspect-[9/16]">
+                <VideoCard videoSrc={videoSrc} />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Mobile layout */}
+        <div className="flex md:hidden flex-col items-center gap-6">
           {/* Top 3 videos */}
-          <div className="w-full grid grid-cols-3 gap-3 md:gap-4">
+          <div className="w-full grid grid-cols-3 gap-3">
             {videos.slice(0, 3).map((videoSrc, index) => (
               <div key={index} className="aspect-[9/16]">
                 <VideoCard videoSrc={videoSrc} />
@@ -86,9 +98,9 @@ const VideoGrid = () => {
             ))}
           </div>
 
-          {/* Bottom 2 videos - centered with same height */}
+          {/* Bottom 2 videos - centered */}
           <div className="flex justify-center w-full">
-            <div className="grid grid-cols-2 gap-3 md:gap-4 w-2/3">
+            <div className="grid grid-cols-2 gap-3 w-2/3">
               {videos.slice(3).map((videoSrc, index) => (
                 <div key={index + 3} className="aspect-[9/16]">
                   <VideoCard videoSrc={videoSrc} />
