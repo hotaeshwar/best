@@ -22,8 +22,29 @@ jobs:
       - name: Install dependencies
         run: npm ci
         
+      - name: Verify videos exist in source
+        run: |
+          echo "Checking public/videos folder:"
+          ls -la public/videos/ || echo "ERROR: No videos folder in public!"
+        
       - name: Build project
         run: npm run build
+        
+      - name: Verify videos in dist after build
+        run: |
+          echo "Contents of dist folder:"
+          ls -la dist/
+          echo ""
+          echo "Checking dist/videos folder:"
+          ls -la dist/videos/ || echo "ERROR: Videos not copied to dist!"
+          
+      - name: Manual copy if needed (backup)
+        run: |
+          if [ ! -d "dist/videos" ]; then
+            echo "Manually copying videos..."
+            mkdir -p dist/videos
+            cp -r public/videos/* dist/videos/
+          fi
       
       - name: Create 404.html for routing
         run: cp dist/index.html dist/404.html
