@@ -26,19 +26,12 @@ jobs:
         uses: actions/checkout@v4
         with:
           lfs: true
-          fetch-depth: 0  # Fetch all history
+          fetch-depth: 0
       
       - name: Setup Git LFS
         run: |
           git lfs install
           git lfs pull
-        
-      - name: List files after checkout
-        run: |
-          echo "Files in root:"
-          ls -la
-          echo "Checking for package.json:"
-          cat package.json || echo "package.json not found!"
         
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -57,15 +50,18 @@ jobs:
       - name: Build project
         run: npm run build
         
+      - name: Verify dist/index.html
+        run: |
+          echo "=== Checking dist/index.html content ==="
+          cat dist/index.html
+          echo ""
+          echo "=== Verifying built assets ==="
+          grep 'src="/assets/' dist/index.html || echo "ERROR: Built assets not found in index.html!"
+        
       - name: Verify videos in dist
         run: |
           echo "Checking dist/videos folder:"
           ls -lah dist/videos/ || echo "No videos folder found!"
-          
-      - name: List all dist contents
-        run: |
-          echo "Full dist structure:"
-          find dist -type f | head -20
       
       - name: Setup Pages
         uses: actions/configure-pages@v5
