@@ -1,56 +1,58 @@
 import { useState, useRef, useEffect } from 'react';
-import { Play, Pause } from 'lucide-react';
-
-// Import videos
-import video from '../assets/images/video.mp4';
-import video1 from '../assets/images/video1.mp4';
-import video2 from '../assets/images/video2.mp4';
-import video3 from '../assets/images/video3.mp4';
-import video4 from '../assets/images/video4.mp4';
+import { Play } from 'lucide-react';
 
 const VideoCard = ({ videoSrc }) => {
   const [isPlaying, setIsPlaying] = useState(false);
+  const [hasError, setHasError] = useState(false);
   const videoRef = useRef(null);
 
   useEffect(() => {
-    if (videoRef.current) {
-      videoRef.current.play().then(() => {
-        setIsPlaying(true);
-      }).catch(err => {
-        console.log('Autoplay prevented:', err);
-      });
+    const vid = videoRef.current;
+    if (vid) {
+      vid.play()
+        .then(() => setIsPlaying(true))
+        .catch((err) => {
+          console.warn('Autoplay prevented:', err);
+        });
     }
   }, []);
 
-  const handlePlayPause = (e) => {
-    if (videoRef.current) {
-      if (isPlaying) {
-        videoRef.current.pause();
-      } else {
-        videoRef.current.play();
-      }
-      setIsPlaying(!isPlaying);
+  const handlePlayPause = () => {
+    const vid = videoRef.current;
+    if (!vid) return;
+
+    if (isPlaying) {
+      vid.pause();
+      setIsPlaying(false);
+    } else {
+      vid.play().then(() => setIsPlaying(true));
     }
   };
 
   return (
-    <div 
+    <div
       className="relative cursor-pointer rounded-xl overflow-hidden bg-black shadow-lg hover:shadow-2xl transition-all duration-300"
       onClick={handlePlayPause}
     >
-      {/* Video Element */}
-      <video
-        ref={videoRef}
-        className="w-full h-full object-cover"
-        loop
-        muted
-        playsInline
-        src={videoSrc}
-      />
+      {!hasError ? (
+        <video
+          ref={videoRef}
+          className="w-full h-full object-cover"
+          loop
+          muted
+          playsInline
+          preload="auto"
+          src={videoSrc}
+          onError={() => setHasError(true)}
+        />
+      ) : (
+        <div className="w-full h-full flex items-center justify-center bg-gray-900 text-white text-sm">
+          Video not supported or missing
+        </div>
+      )}
 
-      {/* Play/Pause Button */}
-      {!isPlaying && (
-        <div className="absolute inset-0 flex items-center justify-center bg-black/20">
+      {!isPlaying && !hasError && (
+        <div className="absolute inset-0 flex items-center justify-center bg-black/25">
           <button className="bg-black/50 backdrop-blur-sm rounded-full p-4 hover:bg-black/70 transition-all duration-200 transform hover:scale-110">
             <Play className="w-8 h-8 text-white ml-1" fill="white" />
           </button>
@@ -61,7 +63,13 @@ const VideoCard = ({ videoSrc }) => {
 };
 
 const VideoGrid = () => {
-  const videos = [video, video1, video2, video3, video4];
+  const videos = [
+    '/videos/video.mp4',
+    '/videos/video1.mp4',
+    '/videos/video2.mp4',
+    '/videos/video3.mp4',
+    '/videos/video4.mp4'
+  ];
 
   return (
     <div className="min-h-screen bg-white">
