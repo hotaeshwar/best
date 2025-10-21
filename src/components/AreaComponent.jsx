@@ -178,20 +178,20 @@ export default function AreaComponent() {
         }
       `}</style>
 
-      {/* Section 1: Hero - Dark Green Background */}
+      {/* Section 1: Hero - White Background with Green Text (Banner Section) */}
       <SectionWrapper id="section1">
-        <div className="relative w-full px-6 sm:px-8 md:px-12 lg:px-16 py-12 sm:py-16 md:py-20 lg:py-28 overflow-hidden bg-green-900">
+        <div className="relative w-full px-6 sm:px-8 md:px-12 lg:px-16 py-12 sm:py-16 md:py-20 lg:py-28 overflow-hidden bg-white">
           {/* Content Container - Matching Section 2 Layout */}
           <div className="relative z-20 max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-4 md:gap-6 lg:gap-8">
             {/* Text Content - Left Side */}
             <div className={`w-full lg:w-1/2 scroll-animate-left ${visibleSections['section1'] ? 'animate-visible' : ''}`}>
-              <p className={`text-yellow-300 text-xs sm:text-sm font-bold tracking-widest mb-3 sm:mb-4 scroll-animate ${visibleSections['section1'] ? 'animate-visible' : ''}`} style={{ animationDelay: '0.1s' }}>
+              <p className={`text-green-800 text-xs sm:text-sm font-bold tracking-widest mb-3 sm:mb-4 scroll-animate ${visibleSections['section1'] ? 'animate-visible' : ''}`} style={{ animationDelay: '0.1s' }}>
                 BEST BY BITES IN MY AREA
               </p>
-              <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6 sm:mb-8 scroll-animate ${visibleSections['section1'] ? 'animate-visible' : ''}`} style={{ animationDelay: '0.2s' }}>
+              <h1 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-green-900 leading-tight mb-6 sm:mb-8 scroll-animate ${visibleSections['section1'] ? 'animate-visible' : ''}`} style={{ animationDelay: '0.2s' }}>
                 WHERE IS BEST BY BITES AVAILABLE RIGHT NOW?
               </h1>
-              <button className={`border-2 border-white text-white px-6 sm:px-8 py-3 hover:bg-white hover:text-green-900 transition-all duration-300 text-sm sm:text-base font-medium uppercase tracking-wide scroll-animate ${visibleSections['section1'] ? 'animate-visible' : ''}`} style={{ animationDelay: '0.3s' }}>
+              <button className={`border-2 border-gray-900 text-gray-900 px-6 sm:px-8 py-3 hover:bg-gray-900 hover:text-white transition-all duration-300 text-sm sm:text-base font-medium uppercase tracking-wide scroll-animate ${visibleSections['section1'] ? 'animate-visible' : ''}`} style={{ animationDelay: '0.3s' }}>
                 Download the App →
               </button>
             </div>
@@ -208,9 +208,9 @@ export default function AreaComponent() {
         </div>
       </SectionWrapper>
 
-      {/* Section 2: Canada - Light Background */}
+      {/* Section 2: Canada - White Background with Black Text */}
       <SectionWrapper id="section2">
-        <div className="w-full bg-stone-100 px-6 sm:px-8 md:px-12 lg:px-16 py-12 sm:py-16 md:py-20 lg:py-28">
+        <div className="w-full bg-white px-6 sm:px-8 md:px-12 lg:px-16 py-12 sm:py-16 md:py-20 lg:py-28">
           <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-8 md:gap-12 lg:gap-16">
             {/* Image - Left */}
             <div className={`image-3d-container w-full lg:w-1/2 flex justify-center scroll-animate-left ${visibleSections['section2'] ? 'animate-visible' : ''}`} style={{ animationDelay: '0.1s' }}>
@@ -223,10 +223,10 @@ export default function AreaComponent() {
 
             {/* Content - Right */}
             <div className={`w-full lg:w-1/2 scroll-animate-right ${visibleSections['section2'] ? 'animate-visible' : ''}`}>
-              <h2 className={`text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 scroll-animate ${visibleSections['section2'] ? 'animate-visible' : ''}`} style={{ animationDelay: '0.15s' }}>
+              <h2 className={`text-3xl sm:text-4xl md:text-5xl font-bold text-black mb-4 sm:mb-6 scroll-animate ${visibleSections['section2'] ? 'animate-visible' : ''}`} style={{ animationDelay: '0.15s' }}>
                 BEST BY BITES IN CANADA
               </h2>
-              <p className={`text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed mb-6 sm:mb-8 scroll-animate ${visibleSections['section2'] ? 'animate-visible' : ''}`} style={{ animationDelay: '0.25s' }}>
+              <p className={`text-black text-sm sm:text-base md:text-lg leading-relaxed mb-6 sm:mb-8 scroll-animate ${visibleSections['section2'] ? 'animate-visible' : ''}`} style={{ animationDelay: '0.25s' }}>
                 Too Good To Go is currently active in the following European countries: France, Germany, Austria,
                 Switzerland, the UK, Ireland, Italy, Spain, Portugal, Denmark, Sweden, Norway, Poland, Czechia,
                 Belgium and the Netherlands.
@@ -239,24 +239,24 @@ export default function AreaComponent() {
         </div>
       </SectionWrapper>
 
-      {/* Section 3: USA - Dark Green Background */}
+      {/* Section 3: USA - White Background with Black Text */}
       <SectionWrapper id="section3">
-        <div className="w-full bg-green-900 px-6 sm:px-8 md:px-12 lg:px-16 py-12 sm:py-16 md:py-20 lg:py-28">
+        <div className="w-full bg-white px-6 sm:px-8 md:px-12 lg:px-16 py-12 sm:py-16 md:py-20 lg:py-28">
           <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-8 md:gap-12 lg:gap-16">
             {/* Content - Left */}
             <div className={`w-full lg:w-1/2 scroll-animate-left ${visibleSections['section3'] ? 'animate-visible' : ''}`}>
-              <p className={`text-yellow-300 text-xs sm:text-sm font-bold tracking-widest mb-2 sm:mb-3 scroll-animate ${visibleSections['section3'] ? 'animate-visible' : ''}`} style={{ animationDelay: '0.1s' }}>
+              <p className={`text-black text-xs sm:text-sm font-bold tracking-widest mb-2 sm:mb-3 scroll-animate ${visibleSections['section3'] ? 'animate-visible' : ''}`} style={{ animationDelay: '0.1s' }}>
                 BEST BY BITES IN USA
               </p>
-              <h2 className={`text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight scroll-animate ${visibleSections['section3'] ? 'animate-visible' : ''}`} style={{ animationDelay: '0.2s' }}>
+              <h2 className={`text-3xl sm:text-4xl md:text-5xl font-bold text-black mb-4 sm:mb-6 leading-tight scroll-animate ${visibleSections['section3'] ? 'animate-visible' : ''}`} style={{ animationDelay: '0.2s' }}>
                 BEST BY BITES IN USA
               </h2>
-              <p className={`text-gray-100 text-sm sm:text-base md:text-lg leading-relaxed mb-6 sm:mb-8 scroll-animate ${visibleSections['section3'] ? 'animate-visible' : ''}`} style={{ animationDelay: '0.3s' }}>
+              <p className={`text-black text-sm sm:text-base md:text-lg leading-relaxed mb-6 sm:mb-8 scroll-animate ${visibleSections['section3'] ? 'animate-visible' : ''}`} style={{ animationDelay: '0.3s' }}>
                 Browse the map of your preferred local area, set the filters based on your individual preferences and
                 immediately see which stores, cafes, restaurants or bakeries have food available for you to reserve and
                 collect. You can easily sort results by distance, price, rating or relevance.
               </p>
-              <button className={`border-2 border-white text-white px-6 sm:px-8 py-3 hover:bg-white hover:text-green-900 transition-all duration-300 text-sm sm:text-base font-medium uppercase tracking-wide scroll-animate ${visibleSections['section3'] ? 'animate-visible' : ''}`} style={{ animationDelay: '0.4s' }}>
+              <button className={`border-2 border-gray-900 text-gray-900 px-6 sm:px-8 py-3 hover:bg-gray-900 hover:text-white transition-all duration-300 text-sm sm:text-base font-medium uppercase tracking-wide scroll-animate ${visibleSections['section3'] ? 'animate-visible' : ''}`} style={{ animationDelay: '0.4s' }}>
                 Download the App →
               </button>
             </div>
@@ -273,9 +273,9 @@ export default function AreaComponent() {
         </div>
       </SectionWrapper>
 
-      {/* Section 4: United States - Light Background */}
+      {/* Section 4: United States - White Background with Black Text */}
       <SectionWrapper id="section4">
-        <div className="w-full bg-stone-100 px-6 sm:px-8 md:px-12 lg:px-16 py-12 sm:py-16 md:py-20 lg:py-28">
+        <div className="w-full bg-white px-6 sm:px-8 md:px-12 lg:px-16 py-12 sm:py-16 md:py-20 lg:py-28">
           <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-8 md:gap-12 lg:gap-16">
             {/* Image - Left */}
             <div className={`image-3d-container w-full lg:w-1/2 flex justify-center scroll-animate-left ${visibleSections['section4'] ? 'animate-visible' : ''}`} style={{ animationDelay: '0.1s' }}>
@@ -288,10 +288,10 @@ export default function AreaComponent() {
 
             {/* Content - Right */}
             <div className={`w-full lg:w-1/2 scroll-animate-right ${visibleSections['section4'] ? 'animate-visible' : ''}`}>
-              <h2 className={`text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 scroll-animate ${visibleSections['section4'] ? 'animate-visible' : ''}`} style={{ animationDelay: '0.15s' }}>
+              <h2 className={`text-3xl sm:text-4xl md:text-5xl font-bold text-black mb-4 sm:mb-6 scroll-animate ${visibleSections['section4'] ? 'animate-visible' : ''}`} style={{ animationDelay: '0.15s' }}>
                 BEST BY BITES IN THE UNITED STATES
               </h2>
-              <p className={`text-gray-600 text-sm sm:text-base md:text-lg leading-relaxed mb-6 sm:mb-8 scroll-animate ${visibleSections['section4'] ? 'animate-visible' : ''}`} style={{ animationDelay: '0.25s' }}>
+              <p className={`text-black text-sm sm:text-base md:text-lg leading-relaxed mb-6 sm:mb-8 scroll-animate ${visibleSections['section4'] ? 'animate-visible' : ''}`} style={{ animationDelay: '0.25s' }}>
                 Too Good To Go is live in New York, Los Angeles, San Francisco, Chicago, Washington, Philadelphia,
                 Boston, Austin, Seattle, Miami, Portland, Providence, Dallas, Houston, San Diego, Sacramento, Atlanta,
                 Minneapolis, San Antonio, Tampa, Orlando, Denver, Phoenix, Detroit, Raleigh-Durham, Charlotte,
@@ -305,24 +305,24 @@ export default function AreaComponent() {
         </div>
       </SectionWrapper>
 
-      {/* Section 5: India - Dark Green Background */}
+      {/* Section 5: India - White Background with Black Text */}
       <SectionWrapper id="section5">
-        <div className="w-full bg-green-900 px-6 sm:px-8 md:px-12 lg:px-16 py-12 sm:py-16 md:py-20 lg:py-28">
+        <div className="w-full bg-white px-6 sm:px-8 md:px-12 lg:px-16 py-12 sm:py-16 md:py-20 lg:py-28">
           <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-8 md:gap-12 lg:gap-16">
             {/* Content - Left */}
             <div className={`w-full lg:w-1/2 scroll-animate-left ${visibleSections['section5'] ? 'animate-visible' : ''}`}>
-              <p className={`text-yellow-300 text-xs sm:text-sm font-bold tracking-widest mb-2 sm:mb-3 scroll-animate ${visibleSections['section5'] ? 'animate-visible' : ''}`} style={{ animationDelay: '0.1s' }}>
+              <p className={`text-black text-xs sm:text-sm font-bold tracking-widest mb-2 sm:mb-3 scroll-animate ${visibleSections['section5'] ? 'animate-visible' : ''}`} style={{ animationDelay: '0.1s' }}>
                 BEST BY BITES IN
               </p>
-              <h2 className={`text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4 sm:mb-6 leading-tight scroll-animate ${visibleSections['section5'] ? 'animate-visible' : ''}`} style={{ animationDelay: '0.2s' }}>
+              <h2 className={`text-3xl sm:text-4xl md:text-5xl font-bold text-black mb-4 sm:mb-6 leading-tight scroll-animate ${visibleSections['section5'] ? 'animate-visible' : ''}`} style={{ animationDelay: '0.2s' }}>
                 BEST BY BITES IN INDIA
               </h2>
-              <p className={`text-gray-100 text-sm sm:text-base md:text-lg leading-relaxed mb-6 sm:mb-8 scroll-animate ${visibleSections['section5'] ? 'animate-visible' : ''}`} style={{ animationDelay: '0.3s' }}>
+              <p className={`text-black text-sm sm:text-base md:text-lg leading-relaxed mb-6 sm:mb-8 scroll-animate ${visibleSections['section5'] ? 'animate-visible' : ''}`} style={{ animationDelay: '0.3s' }}>
                 Browse the map of your preferred local area, set the filters based on your individual preferences and
                 immediately see which stores, cafes, restaurants or bakeries have food available for you to reserve and
                 collect. You can easily sort results by distance, price, rating or relevance.
               </p>
-              <button className={`border-2 border-white text-white px-6 sm:px-8 py-3 hover:bg-white hover:text-green-900 transition-all duration-300 text-sm sm:text-base font-medium uppercase tracking-wide scroll-animate ${visibleSections['section5'] ? 'animate-visible' : ''}`} style={{ animationDelay: '0.4s' }}>
+              <button className={`border-2 border-gray-900 text-gray-900 px-6 sm:px-8 py-3 hover:bg-gray-900 hover:text-white transition-all duration-300 text-sm sm:text-base font-medium uppercase tracking-wide scroll-animate ${visibleSections['section5'] ? 'animate-visible' : ''}`} style={{ animationDelay: '0.4s' }}>
                 Download the App →
               </button>
             </div>
